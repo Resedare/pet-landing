@@ -21,6 +21,7 @@ $secondary-text: #2B4964;
     flex-wrap: wrap;
 
     &__logo {
+        filter: drop-shadow(0px 2px 7px #9e9e9e);
     }
 
     &__list {
@@ -295,6 +296,7 @@ $secondary-text: #2B4964;
         min-height: 800px;
         border-radius: 20px;
         text-align: center;
+        margin-bottom: 10px;
 
         &:nth-child(1) {
         background-image: url('/assets/img/subscription1-figure.png');
@@ -306,11 +308,13 @@ $secondary-text: #2B4964;
             background-image: url('/assets/img/subscription2-figure.png');
             background-repeat: no-repeat;
             transform: scale(110%);
+            box-shadow: 0px 0px 23px 4px rgba(0, 0, 0, 0.2);
         }
 
         &:nth-child(3) {
             background-image: url('/assets/img/subscription3-figure.png');
             background-repeat: no-repeat;
+            background-size: cover;
         }
 
         &-background {
@@ -368,6 +372,7 @@ $secondary-text: #2B4964;
             }
 
             &-check {
+                pointer-events: none;
             }
         }
 
@@ -380,10 +385,15 @@ $secondary-text: #2B4964;
             border: none;
             border-radius: 50px;
             background: linear-gradient(90deg, #5AC4FF 0, #B250FF 100%);
-
+            cursor: pointer;
             color: white;
             font-family: "Comfortaa", sans-serif;
             font-size: 20px;
+            transition: 0.3s;
+        }
+        &-sign-up:hover {
+            box-shadow: 0px 0px 13px 4px rgba(0, 0, 0, 0.2);
+
         }
 
         &-guarantee {
@@ -396,16 +406,35 @@ $secondary-text: #2B4964;
 }
 
 .stats {
+    margin-top: 200px;
+    background-image: url('/assets/img/stats-background.jpg');
+    background-repeat: no-repeat;
+    padding-bottom: 200px;
     &__box {
+        padding: 0 10px;
+        display: flex;
+        justify-content: space-around;
         &-item {
+            gap: 20px;
+            display: flex;
+            align-items: center;
             &-icon {
             }
 
             &-texts {
+                font-family: "Comfortaa", sans-serif;
+                font-weight: 700;
+
                 &-amount {
+                font-size: 42px;
+                color: #425B8C;
+                margin-bottom: 15px;
                 }
 
                 &-description {
+                font-size: 24px;
+                color: #718DC2;
+
                 }
             }
         }
@@ -413,12 +442,35 @@ $secondary-text: #2B4964;
 }
 
 .footer {
+    background-image: url('/assets/img/footer-background.jpg');
+    padding: 400px 10px 50px 10px;
+    background-repeat: no-repeat;
+    background-size: cover;
     &__blocks {
+        display: grid;
+        gap: 5%;
+        grid-template-columns: 1fr 1fr 1fr;
+        &-about-title, &-featured-title, &-contact-title {
+            font-family: "Comfortaa", sans-serif;
+            font-size: 48px;
+            font-weight: 600;
+            color: white;
+            margin-bottom: 50px;
+        }
+        &-about-description, &-featured-list, &-contact-list {
+            font-family: "Comfortaa", sans-serif;
+            font-size: 20px;
+            color: white;
+            line-height: 32px;
+
+
+        }
         &-about {
             &-title {
             }
 
             &-description {
+                font-weight: 100;
             }
         }
 
@@ -427,6 +479,15 @@ $secondary-text: #2B4964;
             }
 
             &-list {
+                list-style: none;
+                display: flex;
+                flex-direction: column;
+                font-weight: 200;
+                gap: 20px;
+
+                &-link {
+                    color: inherit;
+                }
             }
         }
 
@@ -435,14 +496,27 @@ $secondary-text: #2B4964;
             }
 
             &-list {
+                display: flex;
+                flex-direction: column;
+                font-weight: 200;
+                gap: 20px;
+
             }
         }
     }
 
     &--line {
+        margin: 70px 0;
+        width: 100%;
+        height: 2px;
+        background-color: rgb(175, 175, 175);
     }
 
     &__copyright {
+        text-align: center;
+        font-family: "Comfortaa", sans-serif;
+        font-size: 20px;
+        color: white;
     }
 }
 
@@ -503,9 +577,89 @@ $secondary-text: #2B4964;
 
         }
     }
+    .stats {
+        margin-top: 200px;
+        background-image: url('/assets/img/stats-background.jpg');
+        background-repeat: no-repeat;
+        &__box {
+            padding: 0 10px;
+            display: flex;
+            justify-content: space-around;
+            &-item {
+                gap: 20px;
+                display: flex;
+                align-items: center;
+                &-icon {
+                }
+    
+                &-texts {
+                    font-family: "Comfortaa", sans-serif;
+                    font-weight: 700;
+    
+                    &-amount {
+                    font-size: 42px;
+                    color: #425B8C;
+                    margin-bottom: 15px;
+                    }
+    
+                    &-description {
+                    font-size: 24px;
+                    color: #718DC2;
+    
+                    }
+                }
+            }
+        }
+    }
+    .stats {
+        &__box {
+            justify-content: flex-end;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 30px;
+            &-item {
+                flex-direction: column;
+                gap: 20px;
+                max-width: 500px;
+
+
+                &-icon {
+                }
+    
+                &-texts {
+
+    
+                    &-amount {
+                    }
+    
+                    &-description {
+    
+                    }
+                }
+            }
+        }
+    }
+    .footer {
+        &__blocks {
+            grid-template-columns: 1fr;
+            text-align: center;
+        }
+        &--line {
+            margin-top: 15%;
+            width: 100%;
+            height: 2px;
+            background-color: rgb(175, 175, 175);
+        }
+    }
 }
 
 @media screen and (max-width: 768px) {
+    .header {
+        &__title {
+            font-size: 50px;
+        }
+    }
     .subscription {
         &__title {
             font-size: 60px;
@@ -513,6 +667,18 @@ $secondary-text: #2B4964;
 
         &__item {
             min-width: 80%;
+        }
+    }
+    .stats {
+        margin-top: 0;
+        background: none;
+    }
+    .footer {
+        &--line {
+            margin-top: 150px;
+            width: 100%;
+            height: 2px;
+            background-color: rgb(175, 175, 175);
         }
     }
 }

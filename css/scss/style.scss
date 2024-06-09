@@ -18,6 +18,7 @@ $secondary-text: #2B4964;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 150px;
+    text-align: center;
     flex-wrap: wrap;
 
     &__logo {
@@ -85,6 +86,75 @@ $secondary-text: #2B4964;
             }
         }
     }
+
+    &__dropdown {
+        display: none;
+
+        &-menu {
+            cursor: pointer;
+            background-color: transparent;
+            border: none;
+            position: relative;
+        }
+
+        &-menu span:nth-child(1)::after {
+            content: '';
+            display: block;
+            width: 30px;
+            height: 3px;
+            background-color: white;
+            margin-bottom: 3px;
+        }
+        &-menu span:nth-child(2)::after {
+            content: '';
+            display: block;
+            width: 30px;
+            height: 3px;
+            background-color: white;
+            margin-bottom: 3px;
+        }
+        &-menu span:nth-child(3)::after {
+            content: '';
+            display: block;
+            width: 30px;
+            height: 3px;
+            background-color: white;
+        }
+        &-content {
+            display: none;
+            position: absolute;
+            flex-direction: column;
+            right: 0;
+            z-index: 1;
+            background-color: white;
+            width: 200px;
+            justify-content: center;
+
+            border-radius: 20px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            font-family: "Poppins", sans-serif;
+            font-size: 1.3em;
+            &-sign-up, &-login {
+                color: white;
+                background-color: #a3d0fa;
+                height: 20%;
+                border: none;
+                font: inherit;
+                padding-top: 10px;
+                padding-bottom: 10px;
+            }
+        }
+        &-content a {
+            margin-top: 10px;
+            margin-bottom: 10px;
+            display: block;
+            text-decoration: none;
+            color: inherit
+        }
+    }
+    &__dropdown:hover &__dropdown-content {
+        display: flex;
+    }
 }
 
 .header {
@@ -94,7 +164,6 @@ $secondary-text: #2B4964;
     &__inner {
         max-width: 459px;
         padding: 0 10px;
-
     }
 
     &__title {
@@ -301,7 +370,6 @@ $secondary-text: #2B4964;
         &:nth-child(1) {
         background-image: url('/assets/img/subscription1-figure.png');
         background-repeat: no-repeat;
-        
         }
 
         &:nth-child(2) {
@@ -376,7 +444,6 @@ $secondary-text: #2B4964;
             }
         }
 
-
         &-sign-up {
             margin-top: 50px;
             margin-bottom: 30px;
@@ -393,7 +460,6 @@ $secondary-text: #2B4964;
         }
         &-sign-up:hover {
             box-shadow: 0px 0px 13px 4px rgba(0, 0, 0, 0.2);
-
         }
 
         &-guarantee {
@@ -410,6 +476,7 @@ $secondary-text: #2B4964;
     background-image: url('/assets/img/stats-background.jpg');
     background-repeat: no-repeat;
     padding-bottom: 200px;
+
     &__box {
         padding: 0 10px;
         display: flex;
@@ -430,11 +497,9 @@ $secondary-text: #2B4964;
                 color: #425B8C;
                 margin-bottom: 15px;
                 }
-
                 &-description {
                 font-size: 24px;
                 color: #718DC2;
-
                 }
             }
         }
@@ -462,8 +527,6 @@ $secondary-text: #2B4964;
             font-size: 20px;
             color: white;
             line-height: 32px;
-
-
         }
         &-about {
             &-title {
@@ -500,7 +563,6 @@ $secondary-text: #2B4964;
                 flex-direction: column;
                 font-weight: 200;
                 gap: 20px;
-
             }
         }
     }
@@ -574,7 +636,6 @@ $secondary-text: #2B4964;
                     }
                 }
             }
-
         }
     }
     .stats {
@@ -623,18 +684,14 @@ $secondary-text: #2B4964;
                 gap: 20px;
                 max-width: 500px;
 
-
                 &-icon {
                 }
     
-                &-texts {
-
-    
+                &-texts {    
                     &-amount {
                     }
     
-                    &-description {
-    
+                    &-description {    
                     }
                 }
             }
@@ -655,6 +712,20 @@ $secondary-text: #2B4964;
 }
 
 @media screen and (max-width: 768px) {
+    .navigation {
+        &__logo {
+            margin: 0 auto;
+        }
+        &__list {
+            display: none;
+        }
+        &__auth {
+            display: none;
+        }
+        &__dropdown {
+            display: block;
+        }
+    }
     .header {
         &__title {
             font-size: 50px;

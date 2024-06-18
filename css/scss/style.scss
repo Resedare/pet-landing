@@ -1,6 +1,8 @@
 $primary-text: #3B668D;
 $secondary-text: #2B4964;
-
+html {
+    scroll-behavior: smooth;
+}
 .background-home {
     background-image: url("/assets/img/header-background.jpg");
     background-repeat: no-repeat;
@@ -162,8 +164,16 @@ $secondary-text: #2B4964;
     position: relative;
 
     &__inner {
+        position: relative;
         max-width: 459px;
         padding: 0 10px;
+        left: -500px;
+        opacity: 0;
+        transition: 0.8s ease-in-out;
+    }
+    &__inner.slow-left-show {
+        left: 0;
+        opacity: 1;
     }
 
     &__title {
@@ -246,9 +256,15 @@ $secondary-text: #2B4964;
         width: 70%;
         position: absolute;
         top: -50px;
-        right: 0;
+        right: -50%;
         animation: moveUpDown 4s ease-in-out infinite;
         pointer-events: none;
+        opacity: 0;
+        transition: 0.8s ease-in-out;
+    }
+    &__figure.slow-right-show {
+        opacity: 1;
+        right: 0;
     }
 }
 
@@ -275,15 +291,29 @@ $secondary-text: #2B4964;
             top: 5%;
             animation: moveUpDown 4s ease-in-out infinite;
             pointer-events: none;
+            transition: 0.8s ease-in-out;
+            opacity: 0;
+        }
+        &-figure.slow-left-show {
+            opacity: 1;
         }
     }
 
     &__list {
+        position: relative;
         margin-top: 100px;
         max-width: 606px;
         display: flex;
         flex-direction: column;
         row-gap: 50px;
+        opacity: 0;
+        right: -500px;
+        transition: 0.8s ease-in-out;
+
+    }
+    &__list.slow-right-show {
+        opacity: 1;
+        right: 0;
     }
 
     .feature {
@@ -331,6 +361,10 @@ $secondary-text: #2B4964;
 }
 
 .subscription {
+    position: relative;
+    opacity: 0;
+    top: -300px;
+    transition: 1.2s ease-in-out;
     &__title {
         text-align: center;
         font-size: 72px;
@@ -375,7 +409,7 @@ $secondary-text: #2B4964;
         &:nth-child(2) {
             background-image: url('/assets/img/subscription2-figure.png');
             background-repeat: no-repeat;
-            transform: scale(110%);
+            animation: shadowColor 4s infinite ease-in-out;
             box-shadow: 0px 0px 23px 4px rgba(0, 0, 0, 0.2);
         }
 
@@ -470,7 +504,10 @@ $secondary-text: #2B4964;
         }
     }
 }
-
+.subscription.slow-bottom-show {
+    opacity: 1;
+    top: 0;
+}
 .stats {
     margin-top: 200px;
     background-image: url('/assets/img/stats-background.jpg');
@@ -589,6 +626,14 @@ $secondary-text: #2B4964;
     }
     50% {
         transform: translateY(20px);
+    }
+}
+@keyframes shadowColor {
+    0%, 100% {
+        box-shadow: 0px 0px 23px 4px rgba(0, 127, 225, 0.2);
+    }
+    50% {
+        box-shadow: 0px 0px 17px 0px rgba(255, 92, 243, 0.2);
     }
 }
 
@@ -738,6 +783,7 @@ $secondary-text: #2B4964;
 
         &__item {
             min-width: 80%;
+            padding: 10px;
         }
     }
     .stats {
